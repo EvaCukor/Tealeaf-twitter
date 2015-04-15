@@ -1,5 +1,9 @@
 <%= render 'shared/header', header: "Timeline" %>
 
-<% @statuses.each do |status| %>
-  <%= render 'statuses/status', status: status %>
+<% if !@statuses.empty? %>
+  <% @statuses.each do |status| %>
+    <%= render 'statuses/status', status: status %>
+  <% end %>
+<% else %>
+    <%= render 'shared/no_content_info' %>
 <% end %>

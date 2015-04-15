@@ -14,7 +14,8 @@ class UsersController < ApplicationController
     
     if @user.save
       flash[:notice] = "You have registered!"
-      redirect_to user_path(@user.username)
+      session[:user_id] = @user.id
+      redirect_to timeline_path
     else
       render :new
     end

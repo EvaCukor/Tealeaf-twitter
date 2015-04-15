@@ -1,5 +1,9 @@
 <%= render 'shared/header', header: "Mentions" %>
 
-<% current_user.mentions.each do |mention| %>
-  <%= render 'statuses/status', status: mention.status %>
+<% if !current_user.mentions.empty? %>
+  <% current_user.mentions.each do |mention| %>
+    <%= render 'statuses/status', status: mention.status %>
+  <% end %>
+<% else %>
+    <%= render 'shared/no_content_info' %>
 <% end %>
