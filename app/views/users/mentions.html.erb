@@ -1,0 +1,5 @@
+<%= render 'shared/header', header: "Mentions" %>
+
+<% current_user.mentions.each do |mention| %>
+  <%= render 'statuses/status', status: mention.status %>
+<% end %>

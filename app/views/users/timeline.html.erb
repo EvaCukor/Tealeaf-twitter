@@ -1,0 +1,5 @@
+<%= render 'shared/header', header: "Timeline" %>
+
+<% @statuses.each do |status| %>
+  <%= render 'statuses/status', status: status %>
+<% end %>

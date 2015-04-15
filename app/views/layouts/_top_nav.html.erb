@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+  <ul class="nav navbar-nav">
+    <li><%= nav_link 'Home', root_path %></li>
+    <li><%= nav_link 'All Users', users_path %></li>
+    <% if logged_in? %> 
+      <li><%= nav_link 'Timeline', timeline_path %></li>
+      <li><%= nav_link "Mentions <span class='badge'>#{current_user.num_unread_mentions}</span>".html_safe, mentions_path %></li>
+      <li><%= nav_link 'New Status', new_status_path %></li>
+    <% else %>
+      <li><%= nav_link 'Register', new_user_path %></li>
+      <li><%= nav_link 'Login', login_path %></li>
+    <% end %>
+  </ul>
+  <% if logged_in? %>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "Hi, #{current_user.username}!", user_path(current_user.username) %></li>
+      <li><%= nav_link 'Logout', logout_path %></li>
+    </ul>
+  <% end %>
+  </div>
+</nav>

@@ -1,0 +1,5 @@
+<%= render 'shared/header', header: "Recent Statuses" %>
+
+<% @statuses.each do |status| %>
+  <%= render 'statuses/status', status: status %>
+<% end %>

@@ -1,0 +1,7 @@
+<%= render 'shared/header', header: "All Users" %>
+
+<div class="list-group content-width">
+  <% @users.each do |user| %>
+    <%= link_to user.username, user_path(user.username), class: "list-group-item" %>
+  <% end %>
+</div>

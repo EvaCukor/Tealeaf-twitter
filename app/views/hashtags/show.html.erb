@@ -1,0 +1,7 @@
+<%= render 'shared/header', header: "Statuses for hashtag ##{params[:id]}" %>
+
+<ul class="list-group content-width">
+  <% @statuses.each do |status| %>
+    <li class="list-group-item"><%= render 'statuses/status', status: status %></li>
+  <% end %>
+</ul>
